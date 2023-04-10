@@ -13,7 +13,6 @@
         />
       </div>
       <div class="r1-body">
-        <p>三更</p>
         <div class="catch-me">
           <div class="">
             <el-tooltip class="item" content="Github" placement="top">
