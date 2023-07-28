@@ -7,6 +7,7 @@ import com.lyjava.domain.vos.PageVo;
 import com.lyjava.service.ArticleService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -38,6 +39,7 @@ public class ArticleController {
      */
     @GetMapping("/list")
     @ApiOperation(value = "查询文章列表")
+    @PreAuthorize("@ps.hasPermission('content:article:list')")
     public ResponseResult<PageVo> pageList(Integer pageNum,Integer pageSize,String title,String summary){
         return articleService.pageList(pageNum,pageSize,title,summary);
     }

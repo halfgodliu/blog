@@ -83,7 +83,7 @@ public class OssUploadService implements UploadService {
                 System.out.println(putRet.key);
                 System.out.println(putRet.hash);
                 //图片地址
-                String url = "http://rqmfywqa1.hn-bkt.clouddn.com/"+key;
+                String url = "http://qiniu.quancifang.work/"+key;
                 return url;
             } catch (QiniuException ex) {
                 Response r = ex.response;

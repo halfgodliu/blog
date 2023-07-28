@@ -40,7 +40,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu>
     public List<String> selectPermsByUserId(Long userId) {
         //先判断用户id是否为1（管理员）
         if (SecurityUtils.isAdmin()){
-            //查询所有menuType（菜单类型）为C或者F的，状态为正常的菜单
+            //查询所有menuType（菜单类型）为M或者F的，状态为正常的菜单
             LambdaQueryWrapper<Menu> queryWrapper = new LambdaQueryWrapper<>();
             queryWrapper.in(Menu::getMenuType, SystemConstants.MENU,SystemConstants.BUTTON);
             queryWrapper.eq(Menu::getStatus,SystemConstants.STATUS_NORMAL);
