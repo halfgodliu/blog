@@ -1,0 +1,37 @@
+server:
+  port: 7777
+spring:
+  #数据源
+  datasource:
+    url: jdbc:mysql://124.223.210.22:3306/blog?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 1516987
+    driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 5MB
+  #配置redis的IP地址、端口号、如果有密码也要配置
+  redis:
+    host: localhost
+    port: 6379
+mybatis-plus:
+  configuration:
+    # 日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      #逻辑删除配置
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      #主键自增
+      id-type: auto
+
+#七牛云
+oss:
+  #秘钥
+  accessKey: NusvcDyJw8fyELS-siqOxWmr_OFIYTPc1X1frBkk
+  secretKey: 0hi3xljrl86KvG9b2snnOXZKQzheBT0bmecvKcY_
+  #存储空间的名字
+  bucket: ly-blog1

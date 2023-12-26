@@ -55,14 +55,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                // 对于登录接口 允许匿名访问
-                .antMatchers("/user/login").anonymous()
-                //对于退出登录接口必须校验（登录过）后才能访问，评论接口也需要登录访问
-                //.antMatchers("/logout","/comment","/user/userInfo").authenticated()
-                //jwt过滤器测试用，需要校验后才能访问，如果测试没有问题吧这里删除了
-                //.antMatchers("/link/getAllLink").authenticated()
+                // 需要认证才能访问的接口
+                .antMatchers("/getInfo","/getRouters","/user/logout","/content/**","/system/**","/upload").authenticated()
                 // 除上面外的所有请求全部不需要认证即可访问
-                .anyRequest().authenticated();
+                .anyRequest().permitAll();
 
         //把token校验过滤器添加到过滤器链中
         //参数：(要添加的过滤器, 要添加的位置)

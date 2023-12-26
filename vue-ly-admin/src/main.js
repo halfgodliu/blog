@@ -33,6 +33,7 @@ Vue.prototype.handleTree = handleTree
  * Currently MockJs will be used in the production environment,
  * please remove it before going online ! ! !
  */
+//打包的时候要注释掉下面四行，避免报错
 if (process.env.NODE_ENV === 'production') {
   const { mockXHR } = require('../mock')
   mockXHR()
